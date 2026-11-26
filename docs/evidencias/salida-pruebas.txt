@@ -1,0 +1,57 @@
+
+================ PRUEBAS AUTOMÁTICAS SIGAC-UTA ================
+[ OK ] M1-N1 (Normal) Registrar los 7 estudiantes del caso y buscar la matrícula 40 en vector, lista y ABB
+[ OK ] M1-N2 (Normal) Actualizar nombre y carrera de un estudiante
+[ OK ] M1-N3 (Normal) Eliminar un estudiante existente (matrícula 20)
+[ OK ] M1-N4 (Normal) Comparar la búsqueda secuencial con la del ABB para la matrícula 80
+[ OK ] M1-E1 (Extremo) Buscar y listar con el sistema vacío
+[ OK ] M1-E2 (Extremo) Registrar un único estudiante y eliminarlo
+[ OK ] M1-E3 (Extremo) Matrículas en los límites (1 y Integer.MAX_VALUE)
+[ OK ] M1-X1 (Erróneo) Registrar una matrícula duplicada
+[ OK ] M1-X2 (Erróneo) Registrar un estudiante nulo
+[ OK ] M1-X3 (Erróneo) Crear estudiantes con matrícula 0, negativa, nombre vacío o carrera nula
+[ OK ] M1-X4 (Erróneo) Eliminar y actualizar una matrícula inexistente
+[ OK ] M1-X5 (Erróneo) Registrar un estudiante con una carrera que no existe en el árbol académico
+[ OK ] M2-N1 (Normal) Procesar tres solicitudes en orden FIFO
+[ OK ] M2-N2 (Normal) Recuperar dos operaciones en orden LIFO
+[ OK ] M2-N3 (Normal) Deshacer una eliminación y un registro
+[ OK ] M2-N4 (Normal) Deshacer una actualización de estudiante
+[ OK ] M2-N5 (Normal) Deshacer la eliminación de una conexión del laboratorio
+[ OK ] M2-E1 (Extremo) Atender con la cola vacía
+[ OK ] M2-E2 (Extremo) Deshacer con el historial vacío
+[ OK ] M2-E3 (Extremo) Encolar y atender 1000 solicitudes
+[ OK ] M2-X1 (Erróneo) Solicitud de un estudiante inexistente
+[ OK ] M2-X2 (Erróneo) Solicitud sobre un equipo inexistente, nulo o vacío
+[ OK ] M2-X3 (Erróneo) Eliminar o deshacer el registro de un estudiante con solicitudes pendientes
+[ OK ] M3-N1 (Normal) Jerarquía Universidad -> Facultad -> Carrera -> Estudiantes con el caso cargado
+[ OK ] M3-N2 (Normal) Recorridos del ABB del caso (50, 30, 70, 20, 40, 60, 80)
+[ OK ] M3-N3 (Normal) Eliminar del ABB un nodo con dos hijos (30), con un hijo y una hoja
+[ OK ] M3-N4 (Normal) Eliminar la raíz (50) del ABB del caso
+[ OK ] M3-N5 (Normal) Árbol general: recorridos y eliminación de un subárbol completo
+[ OK ] M3-E1 (Extremo) ABB vacío: recorridos, búsqueda y eliminación
+[ OK ] M3-E2 (Extremo) ABB degenerado (500 claves ascendentes) y eliminaciones masivas
+[ OK ] M3-X1 (Erróneo) ABB: clave duplicada y claves/valores nulos
+[ OK ] M3-X2 (Erróneo) Árbol general: padre inexistente, id duplicado, eliminar raíz, árbol vacío
+[ OK ] M3-X3 (Erróneo) Organización académica: facultad inexistente y carrera duplicada
+[ OK ] M4-N1 (Normal) BFS y DFS desde PC1 en la red del caso
+[ OK ] M4-N2 (Normal) Detectar equipos no alcanzables desde PC1
+[ OK ] M4-N3 (Normal) Eliminar la arista SW1 -> SRV1 y recalcular la conectividad
+[ OK ] M4-N4 (Normal) Eliminar el vértice SRV1 (aristas entrantes y salientes)
+[ OK ] M4-N5 (Normal) Grafo no dirigido: la arista existe en ambos sentidos y se elimina en ambos
+[ OK ] M4-E1 (Extremo) Vértice aislado y grafo de un solo vértice
+[ OK ] M4-E2 (Extremo) Grafo con ciclo (A->B->C->A) y cadena de 5000 vértices
+[ OK ] M4-X1 (Erróneo) Operaciones con vértices inexistentes, aristas duplicadas, lazos y pesos inválidos
+[ OK ] M4-X2 (Erróneo) Eliminar un equipo con solicitudes pendientes
+[ OK ] M5-N1 (Normal) Recomendar contactos a Ana en la red del caso
+[ OK ] M5-N2 (Normal) Excluir al usuario y a sus amigos directos (triángulo Ana-Beto-Carla)
+[ OK ] M5-N3 (Normal) Empate de amigos en común
+[ OK ] M5-N4 (Normal) Eliminar la amistad Carla-Diego y recalcular
+[ OK ] M5-E1 (Extremo) Usuario sin amigos y usuario cuyo único amigo no tiene más contactos
+[ OK ] M5-E2 (Extremo) Red grande (200 usuarios en estrella)
+[ OK ] M5-X1 (Erróneo) Usuario inexistente, amistad consigo mismo, nulos y duplicados
+[ OK ] M6-N1 (Normal) Ejecutar el caso integrador completo de principio a fin
+[ OK ] M6-E1 (Extremo) Usar todas las consultas del sistema recién creado (todo vacío)
+[ OK ] M6-X1 (Erróneo) Entradas nulas o en blanco en los servicios
+[ OK ] M6-X2 (Erróneo) Deshacer una conexión cuando uno de sus equipos ya fue eliminado
+----------------------------------------------------------------
+Total: 53 | Aprobadas: 53 | Fallidas: 0

@@ -1,0 +1,129 @@
+
+=========== SIGAC-UTA ===========
+ 1. M1 Gestión de estudiantes
+ 2. M2 Atención e historial (cola FIFO / pila LIFO)
+ 3. M3 Organización académica y ABB
+ 4. M4 Red de laboratorios (grafo)
+ 5. M5 Red social y recomendaciones
+ 6. Ejecutar CASO INTEGRADOR (reinicia el sistema)
+ 7. Ejecutar pruebas automáticas
+ 8. Reiniciar sistema vacío
+ 0. Salir
+Opción: 
+=== 0. Datos cargados ===
+Estudiantes (orden de inserción): 50, 30, 70, 20, 40, 60, 80
+Red de laboratorio (grafo dirigido, aristas en orden de inserción):
+  PC1 -> SW1(1), PC3(3)
+  SW1 -> SRV1(2)
+  SRV1 -> PC2(1)
+  PC2 -> (sin conexiones)
+  PC3 -> (sin conexiones)
+  PC4 -> (sin conexiones)
+Red social (grafo no dirigido):
+  Ana -- Beto(1), Carla(1)
+  Beto -- Ana(1), Diego(1)
+  Carla -- Ana(1), Diego(1), Elena(1)
+  Diego -- Beto(1), Carla(1)
+  Elena -- Carla(1)
+Jerarquía académica:
+  [UNIVERSIDAD] UTA — Universidad Técnica de Ambato
+      └─ [FACULTAD] FISEI — Facultad de Ingeniería en Sistemas, Electrónica e Industrial
+          └─ [CARRERA] Ingeniería en Software
+              └─ [ESTUDIANTE] EST-50 — Marco Aguirre
+              └─ [ESTUDIANTE] EST-30 — Lucía Benítez
+              └─ [ESTUDIANTE] EST-70 — Pablo Cevallos
+              └─ [ESTUDIANTE] EST-20 — Sofía Dávila
+              └─ [ESTUDIANTE] EST-40 — Mateo Espín
+              └─ [ESTUDIANTE] EST-60 — Valeria Fiallos
+              └─ [ESTUDIANTE] EST-80 — Andrés Guerra
+          └─ [CARRERA] Tecnologías de la Información
+          └─ [CARRERA] Telecomunicaciones
+          └─ [CARRERA] Ingeniería Industrial
+
+=== 1. Recorrido inorden del ABB ===
+Inorden : 20, 30, 40, 50, 60, 70, 80
+Preorden: 50, 30, 20, 40, 70, 60, 80
+Posorden: 20, 40, 30, 60, 80, 70, 50
+ABB (raíz a la izquierda):
+              80
+        70
+              60
+  50
+              40
+        30
+              20
+Comparación de búsquedas:
+  Búsqueda de la matrícula 80 (encontrada)
+    Vector (secuencial): 7 comparaciones
+    Lista enlazada (secuencial): 7 comparaciones
+    ABB: 3 comparaciones
+
+
+=== 2. Eliminar la matrícula 30 (nodo con dos hijos: se usa el sucesor inorden) ===
+Inorden : 20, 40, 50, 60, 70, 80
+Preorden: 50, 40, 20, 70, 60, 80
+¿Propiedad del ABB conservada? true
+ABB (raíz a la izquierda):
+              80
+        70
+              60
+  50
+        40
+              20
+
+=== 3. Tres solicitudes FIFO ===
+Cola (frente -> final):
+  Solicitud #1 | matrícula 50 | equipo PC1 | Práctica de redes
+  Solicitud #2 | matrícula 70 | equipo PC2 | Proyecto de estructuras de datos
+  Solicitud #3 | matrícula 20 | equipo PC3 | Pruebas de conectividad
+Atención (orden FIFO):
+  Atendida -> Solicitud #1 | matrícula 50 | equipo PC1 | Práctica de redes
+  Atendida -> Solicitud #2 | matrícula 70 | equipo PC2 | Proyecto de estructuras de datos
+  Atendida -> Solicitud #3 | matrícula 20 | equipo PC3 | Pruebas de conectividad
+Solicitudes pendientes: 0
+
+=== 4. Recuperar dos operaciones LIFO (deshacer) ===
+Historial antes (más reciente primero):
+  ELIMINAR_ESTUDIANTE [30] Lucía Benítez — Ingeniería en Software
+  REGISTRAR_ESTUDIANTE [80] Andrés Guerra — Ingeniería en Software
+  REGISTRAR_ESTUDIANTE [60] Valeria Fiallos — Ingeniería en Software
+  REGISTRAR_ESTUDIANTE [40] Mateo Espín — Ingeniería en Software
+  ... (8 operaciones en total)
+Deshacer #1 -> ELIMINAR_ESTUDIANTE [30] Lucía Benítez — Ingeniería en Software
+Deshacer #2 -> REGISTRAR_ESTUDIANTE [80] Andrés Guerra — Ingeniería en Software
+Inorden tras deshacer: 20, 30, 40, 50, 60, 70
+
+=== 5. BFS desde PC1 y equipos no alcanzables ===
+BFS desde PC1 : PC1 -> SW1 -> PC3 -> SRV1 -> PC2
+DFS desde PC1 : PC1 -> SW1 -> SRV1 -> PC2 -> PC3
+No alcanzables: PC4
+
+=== 6. Recomendaciones de contactos para Ana ===
+  Diego — 2 amigo(s) en común (Beto, Carla)
+  Elena — 1 amigo(s) en común (Carla)
+
+=== 7. Eliminar la arista SW1 -> SRV1 y actualizar la conectividad ===
+Arista eliminada (peso 2). Red actual:
+  PC1 -> SW1(1), PC3(3)
+  SW1 -> (sin conexiones)
+  SRV1 -> PC2(1)
+  PC2 -> (sin conexiones)
+  PC3 -> (sin conexiones)
+  PC4 -> (sin conexiones)
+BFS desde PC1 : PC1 -> SW1 -> PC3
+No alcanzables: SRV1, PC2, PC4
+
+Caso integrador finalizado.
+(El sistema queda cargado con el estado final del caso.)
+
+=========== SIGAC-UTA ===========
+ 1. M1 Gestión de estudiantes
+ 2. M2 Atención e historial (cola FIFO / pila LIFO)
+ 3. M3 Organización académica y ABB
+ 4. M4 Red de laboratorios (grafo)
+ 5. M5 Red social y recomendaciones
+ 6. Ejecutar CASO INTEGRADOR (reinicia el sistema)
+ 7. Ejecutar pruebas automáticas
+ 8. Reiniciar sistema vacío
+ 0. Salir
+Opción: Hasta luego.

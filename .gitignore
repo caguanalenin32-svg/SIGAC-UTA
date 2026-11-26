@@ -1,0 +1,13 @@
+# Compilados
+bin/
+out/
+*.class
+fuentes.txt
+
+# IDE
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store

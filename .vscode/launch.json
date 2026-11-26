@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "SIGAC-UTA (menú)",
+      "request": "launch",
+      "mainClass": "app.Main",
+      "console": "integratedTerminal",
+      "encoding": "UTF-8"
+    },
+    {
+      "type": "java",
+      "name": "SIGAC-UTA (pruebas)",
+      "request": "launch",
+      "mainClass": "pruebas.PruebasSigac",
+      "console": "integratedTerminal",
+      "encoding": "UTF-8"
+    }
+  ]
+}
